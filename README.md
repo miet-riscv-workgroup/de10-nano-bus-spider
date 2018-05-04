@@ -9,7 +9,6 @@ Please use Debian 9 "Stretch". See https://www.debian.org for details.
 
 ```
 apt-get install gcc-arm-linux-gnueabihf
-
 ```
 
 
