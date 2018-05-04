@@ -44,6 +44,21 @@ cp linux/arch/arm/boot/dts/socfpga_cyclone5_de10_nano.dtb $OUTPUT
 ```
 
 
+## FPGA bitstream for DE10-Nano
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+OUTPUT=output
+mkdir -p $OUTPUT
+
+( QP=/opt/altera/17.1/quartus && export PATH=$PATH:$QP/sopc_builder/bin:$QP/bin && \
+  cd riscv-soc-cores && fusesoc --cores cores/ build de10-nano-bus-spider )
+
+cp riscv-soc-cores/build/de10-nano-bus-spider_0/bld-quartus/de10-nano-bus-spider_0.rbf $OUTPUT
+```
+
+
 ## Links
 
 * https://github.com/miet-riscv-workgroup/rv32-simple-soc
