@@ -13,6 +13,22 @@ apt-get install gcc-arm-linux-gnueabihf
 ```
 
 
+## U-Boot for DE10-Nano
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+OUTPUT=output
+mkdir -p $OUTPUT
+
+make -C u-boot ARCH=arm socfpga_de10_nano_defconfig
+make -C u-boot -s ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+
+cp u-boot/spl/u-boot-spl.sfp $OUTPUT
+cp u-boot/u-boot.img $OUTPUT
+```
+
+
 ## Linux kernel for DE10-Nano
 
 From the de10-nano-bus-spider directory do the following:
