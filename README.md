@@ -87,6 +87,19 @@ make -C riscv-nmon CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf- nmon_picorv
 ```
 
 
+## Bus Spider RISC-V firmware
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+OUTPUT=output
+mkdir -p $OUTPUT
+
+make -C bus-spider-firmware CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf-
+cp bus-spider-firmware/bus_spider.bin $OUTPUT
+```
+
+
 ## Links
 
 * https://github.com/miet-riscv-workgroup/rv32-simple-soc

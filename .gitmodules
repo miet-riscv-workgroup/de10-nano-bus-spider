@@ -16,3 +16,6 @@
 [submodule "riscv-qemu"]
 	path = riscv-qemu
 	url = https://github.com/miet-riscv-workgroup/riscv-qemu
+[submodule "bus-spider-firmware"]
+	path = bus-spider-firmware
+	url = https://github.com/frantony/bus-spider-firmware
