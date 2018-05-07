@@ -13,3 +13,6 @@
 [submodule "riscv-nmon"]
 	path = riscv-nmon
 	url = https://github.com/frantony/riscv-nmon
+[submodule "riscv-qemu"]
+	path = riscv-qemu
+	url = https://github.com/miet-riscv-workgroup/riscv-qemu

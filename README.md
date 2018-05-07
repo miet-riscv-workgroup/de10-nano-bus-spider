@@ -59,6 +59,15 @@ cp riscv-soc-cores/build/de10-nano-bus-spider_0/bld-quartus/de10-nano-bus-spider
 ```
 
 
+## RISC-V QEMU
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+( cd riscv-qemu && ./configure --target-list=riscv32-softmmu,riscv64-softmmu --prefix=/opt/riscv && make install )
+```
+
+
 ## RISC-V toolchain
 
 From the de10-nano-bus-spider directory do the following:
