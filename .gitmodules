@@ -10,3 +10,6 @@
 [submodule "riscv-gnu-toolchain"]
 	path = riscv-gnu-toolchain
 	url = https://github.com/riscv/riscv-gnu-toolchain
+[submodule "riscv-nmon"]
+	path = riscv-nmon
+	url = https://github.com/frantony/riscv-nmon

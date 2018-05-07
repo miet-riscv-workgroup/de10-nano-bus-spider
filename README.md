@@ -68,6 +68,16 @@ From the de10-nano-bus-spider directory do the following:
 ```
 
 
+## nmon: RISC-V bootrom software
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+make -C riscv-nmon CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf- nmon_picorv32-wb-soc_24MHz_115200.txt
+
+```
+
+
 ## Links
 
 * https://github.com/miet-riscv-workgroup/rv32-simple-soc
