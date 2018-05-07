@@ -59,6 +59,15 @@ cp riscv-soc-cores/build/de10-nano-bus-spider_0/bld-quartus/de10-nano-bus-spider
 ```
 
 
+## RISC-V toolchain
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+( cd riscv-gnu-toolchain && ./configure --prefix=/opt/riscv --with-arch=rv32i && make newlib )
+```
+
+
 ## Links
 
 * https://github.com/miet-riscv-workgroup/rv32-simple-soc
