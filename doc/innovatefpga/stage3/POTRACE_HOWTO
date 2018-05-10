@@ -1,0 +1,4 @@
+sudo apt-get install potrace
+
+convert Untitled_Artwork-1.png Untitled_Artwork-1.bmp
+potrace --backend svg Untitled_Artwork-1.bmp
