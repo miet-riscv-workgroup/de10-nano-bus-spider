@@ -411,8 +411,29 @@ sudo apt-get install -y tftpd-hpa
 #### Настройка nfs-сервера
 
 
+#### Демонстрация подачи сигнала СБРОС на RISC-V SoC
+
+````
+GPIO=/sys/class/gpio; echo 2040 > $GPIO/export
+echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
+
+# https://www.kernel.org/doc/Documentation/gpio/sysfs.txt
+# GPIO=/sys/class/gpio
+# echo 2040 > $GPIO/export
+# echo 2047 > $GPIO/export
+# echo high > $GPIO/gpio2040/direction
+# echo high > $GPIO/gpio2047/direction
+# echo low > $GPIO/gpio2040/direction
+# echo low > $GPIO/gpio2047/direction
+````
+
+
+
 
 ## Links
+
+
+* [LCD1X9.md](doc/LCD1X9.md)
 
 * [InnovateFPGA 2018 | EM099 | Bus Spider (Project Video)](https://www.youtube.com/watch?v=xk4pjrGDSXQ)
 * [SparkFun's Bus Pirate v3.6a Hookup Guide](https://learn.sparkfun.com/tutorials/bus-pirate-v36a-hookup-guide)
