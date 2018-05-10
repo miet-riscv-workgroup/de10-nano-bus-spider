@@ -3,7 +3,9 @@ flexible open source hacker multi-tool
 
 ```diff
 - Тут description
+- Bus Spider uses protocol for Bus Pirate!
 ```
+
 This repo contains source codes for Bus Spider hardware and software.
 
    * [running from pre-build images](#running-from-pre-build-images)
@@ -255,7 +257,7 @@ sudo mkdir -p /opt/riscv
 sudo chown $USER /opt/riscv
 ```
 
-Clone this repo with all subrepos
+This repository uses submodules. You need the ```--recursive``` option to fetch the submodules automatically
 
 ```
 git clone --recursive https://github.com/miet-riscv-workgroup/de10-nano-bus-spider
@@ -316,7 +318,8 @@ make -C riscv-qemu install
 #### RISC-V toolchain
 
 ```
-( cd riscv-gnu-toolchain && ./configure --prefix=/opt/riscv --with-arch=rv32i && make newlib )
+( cd riscv-gnu-toolchain && ./configure --prefix=/opt/riscv --with-arch=rv32i )
+( make -C riscv-gnu-toolchain newlib )
 ```
 
 
@@ -405,9 +408,21 @@ sudo apt-get install -y tftpd-hpa
 ( cd / && sudo ln -s srv/tftp tftpboot )
 ```
 
+#### Настройка nfs-сервера
+
 
 
 ## Links
 
-* https://github.com/miet-riscv-workgroup/rv32-simple-soc
 * [InnovateFPGA 2018 | EM099 | Bus Spider (Project Video)](https://www.youtube.com/watch?v=xk4pjrGDSXQ)
+* [SparkFun's Bus Pirate v3.6a Hookup Guide](https://learn.sparkfun.com/tutorials/bus-pirate-v36a-hookup-guide)
+* http://dangerousprototypes.com/docs/Bus_Pirate
+* https://github.com/sparkfun/Bus_Pirate
+* https://github.com/BusPirate/Bus_Pirate
+* https://www.seeedstudio.com/Bus-Pirate-v3.6-universal-serial-interface-p-609.html
+
+* Bus Pirate week
+  * [Bus Pirate week day 1 - development](https://www.youtube.com/watch?v=VVyCg_JFt1E)
+  * [Bus Pirate week, day 2 - accessories and cables](https://www.youtube.com/watch?v=kXOe5alq-as)
+  * [Bus Pirate week, day 3 - cases](https://www.youtube.com/watch?v=Y7A0xOZJsoo)
+  * [Bus Pirate week, day 5 - hack the Bus Pirate to measure capacitors](https://www.youtube.com/watch?v=SqPlSPK4zyo)
