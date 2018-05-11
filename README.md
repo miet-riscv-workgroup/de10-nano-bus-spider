@@ -11,6 +11,11 @@ Please use Debian 9 "Stretch". See https://www.debian.org for details.
 apt-get install gcc-arm-linux-gnueabihf
 ```
 
+Install packages for ARM Debian rootfs regeneration
+```
+apt-get install -y binfmt-support qemu qemu-user-static debootstrap
+```
+
 
 ## U-Boot for DE10-Nano
 
@@ -41,6 +46,14 @@ make -C linux -s ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
 
 cp linux/arch/arm/boot/zImage $OUTPUT
 cp linux/arch/arm/boot/dts/socfpga_cyclone5_de10_nano.dtb $OUTPUT
+```
+
+#### Debian ARM rootfs
+
+From the de10-nano-bus-spider directory do the following:
+
+```
+( cd output && sudo ../scripts/mk-debian-rootfs.sh )
 ```
 
 
