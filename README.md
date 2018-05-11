@@ -162,24 +162,10 @@ EOF
 ```
 
 
-### how to examine I2C device (demo)
+### how to examine I2C device: LCD1X9 demo
 
-See https://www.youtube.com/watch?v=xk4pjrGDSXQ#t=4m15s
+* see [LCD1X9.md](doc/LCD1X9.md)
 
-```
-[ 0x70 0xc8 0xf0 0xe0 0x08 0xd0 0xd4 ] -> 9
-[ 0x70 0xc8 0xf0 0xe0 0x0c 0xd0 0xd4 ] -> 9
-[ 0x70 0xc8 0xf0 0xe0 0x10 0x90 0x96 ] -> 0
-[ 0x70 0xc8 0xf0 0xe0 0x14 0x91 0x07 ] -> M
-[ 0x70 0xc8 0xf0 0xe0 0x18 0x40 0xd6 ] -> E
-[ 0x70 0xc8 0xf0 0xe0 0x1c 0x00 0x00 ]
-[ 0x70 0xc8 0xf0 0xe0 0x20 0x00 0x00 ]
-[ 0x70 0xc8 0xf0 0xe0 0x00 0x00 0x00 ]
-```
-
-```diff
-- тут фото
-```
 
 
 ## Full rebuild
@@ -433,8 +419,6 @@ echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
 ## Links
 
 
-* [LCD1X9.md](doc/LCD1X9.md)
-
 * [InnovateFPGA 2018 | EM099 | Bus Spider (Project Video)](https://www.youtube.com/watch?v=xk4pjrGDSXQ)
 * [SparkFun's Bus Pirate v3.6a Hookup Guide](https://learn.sparkfun.com/tutorials/bus-pirate-v36a-hookup-guide)
 * http://dangerousprototypes.com/docs/Bus_Pirate
@@ -447,3 +431,13 @@ echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
   * [Bus Pirate week, day 2 - accessories and cables](https://www.youtube.com/watch?v=kXOe5alq-as)
   * [Bus Pirate week, day 3 - cases](https://www.youtube.com/watch?v=Y7A0xOZJsoo)
   * [Bus Pirate week, day 5 - hack the Bus Pirate to measure capacitors](https://www.youtube.com/watch?v=SqPlSPK4zyo)
+
+
+## Task list
+
+- [ ] master Ethernet gadget (g_ether);
+- [ ] add openocd instruction;
+- [ ] add barebox instruction;
+- [ ] use linux fpga manager;
+- [ ] add picocom/screen /dev/tty* instruction;
+- [ ] add OperRisc Bus pirate clone links;
