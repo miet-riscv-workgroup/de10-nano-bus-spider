@@ -37,14 +37,14 @@ class teaminfo:
 
 def parse_one(url):
 
-    resp = requests.get(url)
-    s = resp.text
-    soup = BeautifulSoup(s.encode('utf-8'), "lxml")
+    #resp = requests.get(url)
+    #s = resp.text
+    #soup = BeautifulSoup(s.encode('utf-8'), "lxml")
 
     #print(filename)
-    #with open(filename) as fp:
-    #    s = fp.read()
-    #    soup = BeautifulSoup(s.encode('utf-8'), "lxml")
+    with open(filename) as fp:
+        s = fp.read()
+        soup = BeautifulSoup(s.encode('utf-8'), "lxml")
 
     #print(soup.prettify())
 
@@ -139,7 +139,8 @@ infos = []
 for team in teams:
     print team
     filename = "%s%s" % (PREFIX, team)
-    t = parse_one("http://" + filename)
+    #t = parse_one("http://" + filename)
+    t = parse_one(filename)
     infos.append(t)
 
 infos.sort(team_compare)
@@ -151,13 +152,13 @@ print("| --- | --- | --- | --- | --- | --- | --- |")
 j = 1
 for i in infos:
     size = 64
-    fname = i.team + ".jpg"
-    sfname = i.team + "_%d.jpg" % (size,)
+    fname = "img/" + i.team + ".jpg"
+    sfname = "img/" + i.team + "_%d.jpg" % (size,)
     #os.system("curl -o %s %s" % (fname, i.img))
-    os.system("if [ ! -e %s ]; then wget -O %s %s; fi" % (fname, fname, i.img))
-    os.system("if [ ! -e %s ]; then convert %s -resize %dx%d %s; fi" % (sfname, fname, size, size, sfname))
-    teamurl = "[%s](https://%s%s)" % (i.team, PREFIX, i.team)
-    imgurl = "![](%s?raw=true)" % (sfname,)
+    #os.system("if [ ! -e %s ]; then wget -O %s %s; fi" % (fname, fname, i.img))
+    #os.system("if [ ! -e %s ]; then convert %s -resize %dx%d %s; fi" % (sfname, fname, size, size, sfname))
+    teamurl = "[%s](http://%s%s)" % (i.team, PREFIX, i.team)
+    imgurl = "![%s](%s?raw=true)" % ("[" + i.category + "] " + i.leader + " " + i.org, sfname,)
     md = "| %s | %s | %s | %s | %s | %s |" % (teamurl, i.title, i.update, imgurl, i.videohref, i.mdgit)
     print("| %d " % (j,) + md)
     j = j + 1
