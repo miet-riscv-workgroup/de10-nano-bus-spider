@@ -158,7 +158,7 @@ for i in infos:
     #os.system("if [ ! -e %s ]; then wget -O %s %s; fi" % (fname, fname, i.img))
     #os.system("if [ ! -e %s ]; then convert %s -resize %dx%d %s; fi" % (sfname, fname, size, size, sfname))
     teamurl = "[%s](http://%s%s)" % (i.team, PREFIX, i.team)
-    imgurl = "![%s](%s?raw=true)" % ("[" + i.category + "] " + i.leader + " " + i.org, sfname,)
+    imgurl = "![%s](%s?raw=true)" % (i.category + "; " + i.leader + "; " + i.org, sfname,)
     md = "| %s | %s | %s | %s | %s | %s |" % (teamurl, i.title, i.update, imgurl, i.videohref, i.mdgit)
     print("| %d " % (j,) + md)
     j = j + 1
