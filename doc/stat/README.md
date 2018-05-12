@@ -1,4 +1,4 @@
-| n | team | title | update | image | video | paper | github |
+| n | team | title | update | image | video | github links | paper: design arch
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [EM080](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM080) | Hardware acceleration of cryptocurrency for IoT micropayments | May 09, 2018 | ![](img/EM080_64.jpg?raw=true) | [link](https://youtu.be/JJRlwTJHBCg) |  [[1]](https://github.com/iotaledger) [[2]](https://github.com/habpygo/mam.client.go) [[3]](https://github.com/LampaLab/iota_fpga) [[4]](https://github.com/iotaledger/ccurl) [[5]](https://github.com/iotaledger/giota) [[6]](https://github.com/LampaLab/iota_fpga/releases/tag/v0.2) [[7]](https://github.com/LampaLab/iota_fpga/releases/tag/v0.1) [[8]](https://github.com/mit-dci/tangled-curl/blob/master/vuln-iota.md) | 209 |
 | 2 | [EM045](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM045) | Telemetry system for firefighters with AR support | May 10, 2018 | ![](img/EM045_64.jpg?raw=true) | [link](https://youtu.be/sDeycnJib30) |  [[1]](https://github.com/sparkfun/SparkFun_MAX3010x_Sensor_Library) | 15 |

@@ -159,7 +159,7 @@ for team in teams:
 
 infos.sort(team_compare)
 
-print("| n | team | title | update | image | video | paper | github |")
+print("| n | team | title | update | image | video | github links | paper: design arch")
 print("| --- | --- | --- | --- | --- | --- | --- | --- |")
 
 
