@@ -20,7 +20,7 @@ import requests
 
 class teaminfo:
 
-    def __init__(self, team, category, leader, org, update, img, title, videohref, mdgit):
+    def __init__(self, team, category, leader, org, update, img, title, videohref, mdgit, darch):
 
         self.team = team
 
@@ -33,6 +33,7 @@ class teaminfo:
 
         self.videohref = videohref
         self.mdgit = mdgit
+        self.darch = darch
 
 
 def parse_one(url):
@@ -87,6 +88,14 @@ def parse_one(url):
             videohref = a['href']
             break
 
+    darch = None
+    i = soup.find('div', {'class': " three-fourths"})
+    for j in i.find_all('h4', {'style': "font-style:italic;font-size:18px;margin:15px 0px;"}):
+        if (j.get_text() == "7. Design Architecture"):
+            li = j.find_next_sibling("div")
+            darch = len(li)
+            break
+
     git = []
     i = soup.find('div', {'class': " three-fourths"})
     for a in i.find_all('a'):
@@ -108,7 +117,7 @@ def parse_one(url):
     else:
         videohref = ""
 
-    t = teaminfo(team, category, leader, org, update, img, title, videohref, mdgit)
+    t = teaminfo(team, category, leader, org, update, img, title, videohref, mdgit, darch)
 
     return t
 
@@ -131,6 +140,11 @@ def team_compare(x, y):
     if lgy > 0 and lgx == 0:
         return 1
 
+    if x.darch > 1 and y.darch == 1:
+        return -1
+    if y.darch > 1 and x.darch == 1:
+        return 1
+
     return 0
 
 
@@ -145,8 +159,8 @@ for team in teams:
 
 infos.sort(team_compare)
 
-print("| n | team | title | update | image | video | github |")
-print("| --- | --- | --- | --- | --- | --- | --- |")
+print("| n | team | title | update | image | video | paper | github |")
+print("| --- | --- | --- | --- | --- | --- | --- | --- |")
 
 
 j = 1
@@ -158,7 +172,8 @@ for i in infos:
     #os.system("if [ ! -e %s ]; then wget -O %s %s; fi" % (fname, fname, i.img))
     #os.system("if [ ! -e %s ]; then convert %s -resize %dx%d %s; fi" % (sfname, fname, size, size, sfname))
     teamurl = "[%s](http://%s%s)" % (i.team, PREFIX, i.team)
-    imgurl = "![%s](%s?raw=true)" % (i.category + "; " + i.leader + "; " + i.org, sfname,)
-    md = "| %s | %s | %s | %s | %s | %s |" % (teamurl, i.title, i.update, imgurl, i.videohref, i.mdgit)
+    # (i.category + "; " + i.leader + "; " + i.org)
+    imgurl = "![](%s?raw=true)" % (sfname,)
+    md = "| %s | %s | %s | %s | %s | %s | %s |" % (teamurl, i.title, i.update, imgurl, i.videohref, i.mdgit, i.darch)
     print("| %d " % (j,) + md)
     j = j + 1
