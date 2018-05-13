@@ -58,6 +58,11 @@ def parse_one(team):
     #print(soup.prettify())
 
     i = soup.find('div', {'class': " one-fourth"})
+    if not i:
+        i = soup.find('div', {'class': "one-fourth"})
+    if not i:
+        print "Warning: empty %s" % (team,)
+        return
     j = i.find('div', {'style': "margin:10px 0px;padding-left:10px;"})
     k = j.find('div')
     l = k.find('a')
@@ -134,9 +139,15 @@ def parse_one(team):
 
     t = teaminfo(team, category, leader, org, update, img, title, videohref, mdgit, darch)
 
+    if t is None:
+        print("Warning: %s: teaminfo return None" % (team,))
+
     return t
 
 def team_compare(x, y):
+    assert (x)
+    assert (y)
+
     lvx = len(x.videohref)
     lvy = len(y.videohref)
     if lvx > 0 and lvy == 0:
@@ -200,5 +211,9 @@ fi""" % (sfname, fname, size, size, sfname))
 
 #parse_region(teams)
 
-teams = [ "AS033", "AS031", "AS015", "AS032", "AS005", "AS023", "AS013", "AS018", "AS043", "AS039", "AS037", "AS028", "AS027", "AS021", "AS053", "AS054", "AS055", "AS058", "AS064", "AS050", "AS017", "AS025", "AS042", "AS066", "AS002" ]
+#teams = [ "AS033", "AS031", "AS015", "AS032", "AS005", "AS023", "AS013", "AS018", "AS043", "AS039", "AS037", "AS028", "AS027", "AS021", "AS053", "AS054", "AS055", "AS058", "AS064", "AS050", "AS017", "AS025", "AS042", "AS066", "AS002" ]
+#parse_region(teams)
+
+teams = [ "PR109", "PR022", "PR051", "PR026", "PR011", "PR061", "PR037", "PR087", "PR044", "PR066", "PR074", "PR015", "PR028", "PR095", "PR086", "PR062", "PR036", "PR138", "PR119", "PR075", "PR077", "PR081", "PR063", "PR137", "PR057", "PR076", "PR083", "PR089", "PR023", "PR129", "PR124", "PR050", "PR143", "PR144", "PR069", "PR029", "PR058", "PR148", "PR065", "PR121", "PR034", "PR082", "PR040", "PR107", "PR131", "PR060", "PR039", "PR123", "PR102", "PR072", "PR071" ]
+
 parse_region(teams)
