@@ -36,7 +36,15 @@ class teaminfo:
         self.darch = darch
 
 
-def parse_one(url):
+def parse_one(team):
+
+    url = "http://" + "%s%s" % (PREFIX, team)
+
+    os.system("mkdir -p cache")
+
+    filename = "cache/" + team + ".html"
+
+    os.system("if [ ! -e %s ]; then wget -O %s %s 1>&2; fi" % (filename, filename, url))
 
     #resp = requests.get(url)
     #s = resp.text
@@ -61,8 +69,12 @@ def parse_one(url):
 
     i = soup.find('div', {'class': " three-fourths"})
     j = i.find('div', {'class': "ProjectImage"})
-    k = j.find('img')
-    img = k['src']
+    if j:
+        k = j.find('img')
+        img = k['src']
+    else:
+        print("Warning: %s: no image" % (team,))
+        img = None
 
     h = soup.find('small')
 
@@ -99,7 +111,10 @@ def parse_one(url):
     git = []
     i = soup.find('div', {'class': " three-fourths"})
     for a in i.find_all('a'):
-            aa = a['href']
+            try:
+                aa = a['href']
+            except KeyError:
+                continue
             m = re.match(r"https://.*github.com\/.*$", aa)
             if (m):
                 git.append(aa)
@@ -120,10 +135,6 @@ def parse_one(url):
     t = teaminfo(team, category, leader, org, update, img, title, videohref, mdgit, darch)
 
     return t
-
-team = "EM099"
-
-teams = [ "EM112", "EM046", "EM080", "EM104", "EM051", "EM045", "EM057", "EM099", "EM016", "EM052", "EM075", "EM083", "EM071", "EM070", "EM077", "EM078", "EM113", "EM011", "EM039", "EM088", "EM116", "EM087", "EM055", "EM094", "EM076", "EM102", "EM043",  "EM097", "EM105", "EM084", "EM053" ]
 
 def team_compare(x, y):
     lvx = len(x.videohref)
@@ -148,32 +159,46 @@ def team_compare(x, y):
     return 0
 
 
-infos = []
+def parse_region(teams):
+    infos = []
 
-for team in teams:
-    print team
-    filename = "%s%s" % (PREFIX, team)
-    #t = parse_one("http://" + filename)
-    t = parse_one(filename)
-    infos.append(t)
+    for team in teams:
+        #print team
+        t = parse_one(team)
+        infos.append(t)
 
-infos.sort(team_compare)
+    infos.sort(team_compare)
 
-print("| n | team | title | update | image | video | github links | paper: design arch")
-print("| --- | --- | --- | --- | --- | --- | --- | --- |")
+    print("| n | team | title | update | image | video | github links | paper: design arch")
+    print("| --- | --- | --- | --- | --- | --- | --- | --- |")
 
+    j = 1
+    for i in infos:
+        size = 64
+        fname = "img/" + i.team + ".jpg"
+        sfname = "img/" + i.team + "_%d.jpg" % (size,)
+        #os.system("curl -o %s %s" % (fname, i.img))
 
-j = 1
-for i in infos:
-    size = 64
-    fname = "img/" + i.team + ".jpg"
-    sfname = "img/" + i.team + "_%d.jpg" % (size,)
-    #os.system("curl -o %s %s" % (fname, i.img))
-    #os.system("if [ ! -e %s ]; then wget -O %s %s; fi" % (fname, fname, i.img))
-    #os.system("if [ ! -e %s ]; then convert %s -resize %dx%d %s; fi" % (sfname, fname, size, size, sfname))
-    teamurl = "[%s](http://%s%s)" % (i.team, PREFIX, i.team)
-    # (i.category + "; " + i.leader + "; " + i.org)
-    imgurl = "![](%s?raw=true)" % (sfname,)
-    md = "| %s | %s | %s | %s | %s | %s | %s |" % (teamurl, i.title, i.update, imgurl, i.videohref, i.mdgit, i.darch)
-    print("| %d " % (j,) + md)
-    j = j + 1
+        os.system("""
+if [ ! -e %s ]; then
+    wget -O %s %s
+fi""" % (fname, fname, i.img))
+
+        os.system("""
+if [ ! -e %s ]; then
+    convert %s -resize %dx%d! %s
+fi""" % (sfname, fname, size, size, sfname))
+
+        teamurl = "[%s](http://%s%s)" % (i.team, PREFIX, i.team)
+        # (i.category + "; " + i.leader + "; " + i.org)
+        imgurl = "![](%s?raw=true)" % (sfname,)
+        md = "| %s | %s | %s | %s | %s | %s | %s |" % (teamurl, i.title, i.update, imgurl, i.videohref, i.mdgit, i.darch)
+        print("| %d " % (j,) + md)
+        j = j + 1
+
+#teams = [ "EM112", "EM046", "EM080", "EM104", "EM051", "EM045", "EM057", "EM099", "EM016", "EM052", "EM075", "EM083", "EM071", "EM070", "EM077", "EM078", "EM113", "EM011", "EM039", "EM088", "EM116", "EM087", "EM055", "EM094", "EM076", "EM102", "EM043",  "EM097", "EM105", "EM084", "EM053" ]
+
+#parse_region(teams)
+
+teams = [ "AS033", "AS031", "AS015", "AS032", "AS005", "AS023", "AS013", "AS018", "AS043", "AS039", "AS037", "AS028", "AS027", "AS021", "AS053", "AS054", "AS055", "AS058", "AS064", "AS050", "AS017", "AS025", "AS042", "AS066", "AS002" ]
+parse_region(teams)

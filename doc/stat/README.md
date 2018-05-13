@@ -31,3 +31,32 @@
 | 29 | [EM113](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM113) | Wheelchair control through EEG | Dec 31, 2017 | ![](img/EM113_64.jpg?raw=true) |  |  | 1 |
 | 30 | [EM088](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM088) | Module for overlaying user information on a video stream | Apr 30, 2018 | ![](img/EM088_64.jpg?raw=true) |  |  | 1 |
 | 31 | [EM087](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM087) | Motor control module by position | Apr 30, 2018 | ![](img/EM087_64.jpg?raw=true) |  |  | 1 |
+
+
+| n | team | title | update | image | video | github links | paper: design arch
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | [AS042](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS042) | CUBESAT FPGA and PARALLEL ARCHITECTURE | Apr 30, 2018 | ![](img/AS042_64.jpg?raw=true) | [link](https://youtu.be/CdJRvVPdM8w) |  [[1]](https://github.com/davidcastells/ocmpi) | 17 |
+| 2 | [AS033](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS033) | Reconfigurable virtual instrumentation with FPGA | May 13, 2018 | ![](img/AS033_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=xUa7MQW-RU8) |  | 73 |
+| 3 | [AS031](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS031) | BreXting : Brain Texting | May 01, 2018 | ![](img/AS031_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=mN0HHEVOoJw) |  | 5 |
+| 4 | [AS015](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS015) | Flex Force Smart Glove for Measuring Sensorimotor Stimulation | May 06, 2018 | ![](img/AS015_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=oGvOwnDhRaQ) |  | 45 |
+| 5 | [AS032](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS032) | GeNLearn - Bayesian Structure Learning of Gene Networks for Personalized Healthcare | May 11, 2018 | ![](img/AS032_64.jpg?raw=true) | [link](https://youtu.be/E5IxKw9VrVk) |  | 9 |
+| 6 | [AS023](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS023) | Adaptable Core for Industrial Machines in Peru | May 11, 2018 | ![](img/AS023_64.jpg?raw=true) | [link](https://youtu.be/bqtQQxbZUEQ) |  | 13 |
+| 7 | [AS013](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS013) | Infant Sleep Apnea Monitor and Alarm | May 10, 2018 | ![](img/AS013_64.jpg?raw=true) | [link](https://youtu.be/6_o4jSUZGFo) |  | 11 |
+| 8 | [AS018](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS018) | Smart Skin Cancer Identification | May 07, 2018 | ![](img/AS018_64.jpg?raw=true) | [link](https://youtu.be/ZJxuqBx26Ss) |  | 19 |
+| 9 | [AS043](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS043) | Quantum Gate Emulator | Apr 29, 2018 | ![](img/AS043_64.jpg?raw=true) | [link](https://youtu.be/pm_lB7HERXc) |  | 39 |
+| 10 | [AS039](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS039) | Audio Personalities | Apr 29, 2018 | ![](img/AS039_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=Y_xpHqx3T_w) |  | 7 |
+| 11 | [AS037](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS037) | CRIOS - Cruise speed controller with Deep Learning | Apr 30, 2018 | ![](img/AS037_64.jpg?raw=true) | [link](https://youtu.be/WBMqI9TFrvA) |  | 5 |
+| 12 | [AS054](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS054) | Efficient control of traffic lights in a crossing | Apr 30, 2018 | ![](img/AS054_64.jpg?raw=true) | [link](https://youtu.be/TxxSHrG9YC4) |  | 3 |
+| 13 | [AS055](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS055) | UAV with Artificial vision for exploration | Apr 30, 2018 | ![](img/AS055_64.jpg?raw=true) | [link](https://youtu.be/4pxXmgpuSqU) |  | 21 |
+| 14 | [AS058](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS058) | DETECTION OF SUPERFICIAL IMPERFECTIONS IN AGROINDUSTRIAL EXPORT PRODUCTS | Apr 30, 2018 | ![](img/AS058_64.jpg?raw=true) | [link](https://youtu.be/erPbMweQXrk) |  | 35 |
+| 15 | [AS025](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS025) | FPGA base driver for Linear Motion System | May 01, 2018 | ![](img/AS025_64.jpg?raw=true) | [link](https://youtu.be/WXVnvRiiDDQ) |  | 5 |
+| 16 | [AS066](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS066) | EDAL - Evaluating Driver’s Attention Level | Apr 30, 2018 | ![](img/AS066_64.jpg?raw=true) | [link](https://youtu.be/Cxd9dhzfqy4) |  | 7 |
+| 17 | [AS002](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS002) | Computer Design, Robotic Boards | May 11, 2018 | ![](img/AS002_64.jpg?raw=true) | [link](https://youtu.be/OD3wrwaH6Jo) |  | 131 |
+| 18 | [AS005](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS005) | Automated Crops Incubator | Apr 29, 2018 | ![](img/AS005_64.jpg?raw=true) | [link](https://youtu.be/mLfB2LFQQak) |  | 1 |
+| 19 | [AS064](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS064) | IV curves | Apr 30, 2018 | ![](img/AS064_64.jpg?raw=true) |  |  | 11 |
+| 20 | [AS028](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS028) | FPGA Robotics Platform for Experimenting With Optimization of Core Robotics Algorithms | Dec 22, 2017 | ![](img/AS028_64.jpg?raw=true) |  |  | 1 |
+| 21 | [AS027](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS027) | Improving Traffic Safety and Efficiency Through Machine Learning | Dec 22, 2017 | ![](img/AS027_64.jpg?raw=true) |  |  | 1 |
+| 22 | [AS021](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS021) | CNN-Based Real Time Sign Language Transcription System Using FPGA | Dec 19, 2017 | ![](img/AS021_64.jpg?raw=true) |  |  | 1 |
+| 23 | [AS053](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS053) | Data Collection, Robotics | Jan 27, 2018 | ![](img/AS053_64.jpg?raw=true) |  |  | 1 |
+| 24 | [AS050](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS050) | Quartz gravel sorting | Dec 30, 2017 | ![](img/AS050_64.jpg?raw=true) |  |  | 1 |
+| 25 | [AS017](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS017) | Ultrafast optical focusing system | May 10, 2018 | ![](img/AS017_64.jpg?raw=true) |  |  | 1 |
