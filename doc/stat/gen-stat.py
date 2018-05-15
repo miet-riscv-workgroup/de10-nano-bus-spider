@@ -145,6 +145,8 @@ def parse_one(team):
 
     return t
 
+import time
+import datetime
 def team_compare(x, y):
     assert (x)
     assert (y)
@@ -166,6 +168,13 @@ def team_compare(x, y):
     if x.darch > 1 and y.darch == 1:
         return -1
     if y.darch > 1 and x.darch == 1:
+        return 1
+
+    xt = time.mktime(datetime.datetime.strptime(x.update, "%b %d, %Y").timetuple())
+    yt = time.mktime(datetime.datetime.strptime(y.update, "%b %d, %Y").timetuple())
+    if xt > yt:
+        return -1
+    if yt > xt:
         return 1
 
     return 0
