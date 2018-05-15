@@ -121,7 +121,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [AP074](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP074) | Detection and Recognition of Plant Diseases using FPGA based real-time processing | May 01, 2018 | ![](img/AP074_64.jpg?raw=true) | [link](https://youtu.be/SQslmbeOhpQ) |  | 9 |
 | 2 | [AP085](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP085) | Embedded Neural Coprocessor | May 12, 2018 | ![](img/AP085_64.jpg?raw=true) | [link](https://youtu.be/bAimM-Vx4bg) |  | 35 |
-| 3 | [AP068](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP068) | VR|AR Headset with Kalman Filter Position Tracking and Stereo Vision Depth Sensing | May 01, 2018 | ![](img/AP068_64.jpg?raw=true) | [link](https://youtu.be/0Z3NJqdZBfQ) |  | 11 |
+| 3 | [AP068](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP068) | VR&#124;AR Headset with Kalman Filter Position Tracking and Stereo Vision Depth Sensing | May 01, 2018 | ![](img/AP068_64.jpg?raw=true) | [link](https://youtu.be/0Z3NJqdZBfQ) |  | 11 |
 | 4 | [AP050](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP050) | Compact Short Range FMCW Microwave Radar for Enhanced Vision in Robotics & Vehicles | Apr 30, 2018 | ![](img/AP050_64.jpg?raw=true) | [link](https://youtu.be/irNeouKos84) |  | 13 |
 | 5 | [AP021](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP021) | VOICE CREATION USING SIXTH SENSE TECHNOLOGY | Apr 28, 2018 | ![](img/AP021_64.jpg?raw=true) | [link](https://youtu.be/YfnTDNlYzxs) |  | 7 |
 | 6 | [AP042](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AP042) | Electronic Digital Wallet | Apr 29, 2018 | ![](img/AP042_64.jpg?raw=true) | [link](https://youtu.be/O7K46qqYs1Q) |  | 13 |

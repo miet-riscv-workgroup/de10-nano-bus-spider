@@ -22,14 +22,15 @@ class teaminfo:
 
     def __init__(self, team, category, leader, org, update, img, title, videohref, mdgit, darch):
 
-        self.team = team
+        title = title.replace("|", "&#124;")
 
+        self.team = team
+        self.title = title
         self.category = category
         self.leader = leader
         self.org = org
         self.update = update
         self.img = img
-        self.title = title
 
         self.videohref = videohref
         self.mdgit = mdgit
