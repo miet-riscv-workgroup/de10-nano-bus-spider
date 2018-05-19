@@ -31,11 +31,12 @@
 | 29 | [EM051](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM051) | JAW : Jussieu's Autonomous Wheelchair | Jan 25, 2018 | ![](img/EM051_64.jpg?raw=true) |  |  | 1 |
 | 30 | [EM113](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM113) | Wheelchair control through EEG | Dec 31, 2017 | ![](img/EM113_64.jpg?raw=true) |  |  | 1 |
 | 31 | [EM075](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM075) | SafetyFirst | Dec 26, 2017 | ![](img/EM075_64.jpg?raw=true) |  |  | 1 |
+| 32 | [EM030](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM030) | Sound Synthesis of a Hammond Organ | Nov 12, 2017 | ![](img/EM030_64.jpg?raw=true) |  |  | None |
 
 | n | team | title | update | image | video | github links | paper: design arch
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [AS042](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS042) | CUBESAT FPGA and PARALLEL ARCHITECTURE | Apr 30, 2018 | ![](img/AS042_64.jpg?raw=true) | [link](https://youtu.be/CdJRvVPdM8w) |  [[1]](https://github.com/davidcastells/ocmpi) | 17 |
-| 2 | [AS032](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS032) | GeNLearn - Bayesian Structure Learning of Gene Networks for Personalized Healthcare | May 15, 2018 | ![](img/AS032_64.jpg?raw=true) | [link](https://youtu.be/E5IxKw9VrVk) |  | 9 |
+| 2 | [AS032](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS032) | GeNLearn - Bayesian Structure Learning of Gene Networks for Personalized Healthcare | May 16, 2018 | ![](img/AS032_64.jpg?raw=true) | [link](https://youtu.be/E5IxKw9VrVk) |  | 9 |
 | 3 | [AS033](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS033) | Reconfigurable virtual instrumentation with FPGA | May 13, 2018 | ![](img/AS033_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=xUa7MQW-RU8) |  | 73 |
 | 4 | [AS023](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS023) | Adaptable Core for Industrial Machines in Peru | May 11, 2018 | ![](img/AS023_64.jpg?raw=true) | [link](https://youtu.be/bqtQQxbZUEQ) |  | 13 |
 | 5 | [AS002](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=AS002) | Computer Design, Robotic Boards | May 11, 2018 | ![](img/AS002_64.jpg?raw=true) | [link](https://youtu.be/OD3wrwaH6Jo) |  | 131 |
@@ -62,24 +63,24 @@
 
 | n | team | title | update | image | video | github links | paper: design arch
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | [PR061](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR061) | 基于深度学习的眼科疾病诊断系统 | May 11, 2018 | ![](img/PR061_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NTQ2NzQ4NA==.html?spm=a2hzp.8244740.0.0) |  [[1]](https://github.com/doonny/PipeCNN) | 9 |
+| 1 | [PR061](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR061) | 基于深度学习的眼科疾病诊断系统 | May 16, 2018 | ![](img/PR061_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NTQ2NzQ4NA==.html?spm=a2hzp.8244740.0.0) |  [[1]](https://github.com/doonny/PipeCNN) | 9 |
 | 2 | [PR022](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR022) | An OpenCL-Based FPGA Accelerator for Convolution Neural Networks | May 10, 2018 | ![](img/PR022_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYwMzI0MjYzNg==.html?spm=a2hzp.8244740.0.0) |  [[1]](https://github.com/doonny/PipeCNN) | 15 |
 | 3 | [PR023](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR023) | Posture Recognition Based on Deep Learning | Apr 27, 2018 | ![](img/PR023_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3MzA2NTM0NA.html) |  [[1]](https://github.com/cxdzyq1110/posture_recognition_CNN) [[2]](https://github.com/cxdzyq1110/posture_recognition_CNN/blob/master/documents/2018-04-17-Posture_Recognition_Based_on_Deep_Learning.pdf) | 55 |
-| 4 | [PR051](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR051) | BioVision | May 10, 2018 | ![](img/PR051_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=YDFcIZFRduY) |  | 39 |
+| 4 | [PR051](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR051) | BioVision | May 10, 2018 | ![](img/PR051_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYxMTgzOTk2NA==.html) |  | 39 |
 | 5 | [PR074](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR074) | 皮影戏系统设计 | May 10, 2018 | ![](img/PR074_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NDgxNDk4OA==.html) |  | 35 |
-| 6 | [PR081](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR081) | 物聯網探險車 | May 10, 2018 | ![](img/PR081_64.jpg?raw=true) | [link](https://youtu.be/ZFqHrHVnkAY) |  | 13 |
-| 7 | [PR063](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR063) | 拾荒機器人 | May 10, 2018 | ![](img/PR063_64.jpg?raw=true) | [link](https://youtu.be/ynGEyToTk5U) |  | 25 |
+| 6 | [PR081](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR081) | 物聯網探險車 | May 10, 2018 | ![](img/PR081_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYxMDgwMTM4MA==.html?spm=a2h3j.8428770.3416059.1) |  | 13 |
+| 7 | [PR063](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR063) | 拾荒機器人 | May 10, 2018 | ![](img/PR063_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYwOTgwNDg1Mg==.html?spm=a2h3j.8428770.3416059.1) |  | 25 |
 | 8 | [PR137](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR137) | 基于视觉的三维图像重建 | May 10, 2018 | ![](img/PR137_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU5NzYyMDcxMg==.html?f=51731521) |  | 5 |
 | 9 | [PR040](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR040) | 位置感知矩阵售货柜 | May 10, 2018 | ![](img/PR040_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU5NTY3NDM2NA==.html?spm=a2h0k.8191407.0.0&from=s1.8-1-1.2) |  | 3 |
 | 10 | [PR107](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR107) | A Smart IoT Light Controlling System | May 10, 2018 | ![](img/PR107_64.jpg?raw=true) | [link](https://v.youku.com/v_show/id_XMzU5NzI5NDkwMA==.html?spm=a2h3j.8428770.3416059.1) |  | 3 |
-| 11 | [PR123](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR123) | 穿戴式醫療監控系統應用於精神官能症 | May 10, 2018 | ![](img/PR123_64.jpg?raw=true) | [link](https://youtu.be/fGJxkDqLK5w) |  | 3 |
+| 11 | [PR123](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR123) | 穿戴式醫療監控系統應用於精神官能症 | May 10, 2018 | ![](img/PR123_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYwOTgzMzU4MA==.html?spm=a2hzp.8244740.0.0) |  | 3 |
 | 12 | [PR075](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR075) | 肖像写真器 | May 09, 2018 | ![](img/PR075_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NDQ5NTgzNg==.html) |  | 11 |
-| 13 | [PR124](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR124) | FPGA Implementation of Neural Network Image Scaling Processor | May 09, 2018 | ![](img/PR124_64.jpg?raw=true) | [link](https://youtu.be/x6bbMwBb1Z8) |  | 41 |
+| 13 | [PR124](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR124) | FPGA Implementation of Neural Network Image Scaling Processor | May 09, 2018 | ![](img/PR124_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYxMTAxNjUzNg==.html?spm=a2h3j.8428770.3416059.1) |  | 41 |
 | 14 | [PR034](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR034) | Controlling  drone from mirroring sand table | May 09, 2018 | ![](img/PR034_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU2OTYyODE2NA==.html?from=y1.2-1-105.4.1-1.1-1-2-0-0%26source%3Dautoclick) |  | 3 |
 | 15 | [PR071](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR071) | 机器书法 | May 09, 2018 | ![](img/PR071_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NDQwNDI4OA==.html) |  | 15 |
-| 16 | [PR089](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR089) | 無線定位之FPGA設計與實現 | May 07, 2018 | ![](img/PR089_64.jpg?raw=true) | [link](https://www.youtube.com/watch?v=aUXRtJDdSt0) |  | 13 |
+| 16 | [PR089](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR089) | 無線定位之FPGA設計與實現 | May 07, 2018 | ![](img/PR089_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYxMTUxODc4MA==.html?spm=a2h3j.8428770.3416059.1) |  | 13 |
 | 17 | [PR044](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR044) | 声源目标定位与识别系统 | May 06, 2018 | ![](img/PR044_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NTY3MTMxMg==.html) |  | 15 |
-| 18 | [PR144](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR144) | SC-DNN - Deep Neural Network using Stochastic Computing | May 05, 2018 | ![](img/PR144_64.jpg?raw=true) | [link](https://youtu.be/S5mJEzBvw_Y) |  | 25 |
+| 18 | [PR144](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR144) | SC-DNN - Deep Neural Network using Stochastic Computing | May 05, 2018 | ![](img/PR144_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzYxMTA0OTA2OA==.html?spm=a2h3j.8428770.3416059.1) |  | 25 |
 | 19 | [PR076](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR076) | 智能小跟班(Intelligent tracking robot) | May 02, 2018 | ![](img/PR076_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NDg0ODU1Ng==.html?spm=a2h3j.8428770.3416059.1) |  | 17 |
 | 20 | [PR082](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR082) | 基于FPGA的甘蓝油菜虫害检测系统 | May 02, 2018 | ![](img/PR082_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3ODQ5NTYxMg==.html?spm=a2hzp.8244740.0.0) |  | 11 |
 | 21 | [PR109](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR109) | 音频图像处理及其全息显示(3D Holographic Generator System of Audio Spectrum and Actual Object) | May 01, 2018 | ![](img/PR109_64.jpg?raw=true) | [link](https://v.youku.com/v_show/id_XMzU3NTg1OTAwMA.html?spm=a2h0j.11185381.listitem_page1.5~Ahttps://v.youku.com/v_show/id_XMzU3NTg1OTAwMA.html?spm=a2h0j.11185381.listitem_page1.5~A) |  | 11 |
@@ -102,15 +103,17 @@
 | 38 | [PR037](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR037) | Holographic imaging based on rotating motor | May 09, 2018 | ![](img/PR037_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU5MzkyOTA0OA==.html?spm=a2h3j.8428770.3416059.1) |  | 1 |
 | 39 | [PR011](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR011) | Classification of intracranial lesions type images based on convolutional neural network | May 08, 2018 | ![](img/PR011_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU5NDk1MzE1Ng==.html?spm=a2h3j.8428770.3416059.1) |  | 1 |
 | 40 | [PR119](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR119) | Pedestrian detection in FIR Images using deep learning | Dec 29, 2017 | ![](img/PR119_64.jpg?raw=true) | [link](http://v.youku.com/v_show/id_XMzU3NTUxNjQ3Mg==.html) |  | 1 |
-| 41 | [PR083](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR083) | Use reinforcement learning to enhance arcade games. | May 01, 2018 | ![](img/PR083_64.jpg?raw=true) |  |  [[1]](https://github.com/Jazpy/RYUNATOR) [[2]](https://github.com/hengyunabc/kof-ai) [[3]](https://github.com/taweili/ardublock) [[4]](https://github.com/hhr2015/ardublock4fpga) | 55 |
-| 42 | [PR058](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR058) | Intelligent traffic light control system based on image recognition and sensor. | Apr 29, 2018 | ![](img/PR058_64.jpg?raw=true) |  |  | 33 |
-| 43 | [PR087](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR087) | 基于FPGA的围棋机器人/Go Robot Based on FPGA | Apr 12, 2018 | ![](img/PR087_64.jpg?raw=true) |  |  | 1 |
-| 44 | [PR148](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR148) | 基于DE10-Nano的6S辅助管理机器人 | Jan 19, 2018 | ![](img/PR148_64.jpg?raw=true) |  |  | 1 |
-| 45 | [PR129](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR129) | Fast and Portable Visual Nervous System | Jan 14, 2018 | ![](img/PR129_64.jpg?raw=true) |  |  | 1 |
-| 46 | [PR102](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR102) | 基于FPGA的可回收垃圾收集系统设计 | Dec 27, 2017 | ![](img/PR102_64.jpg?raw=true) |  |  | 1 |
-| 47 | [PR057](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR057) | miniature analog antimissile system based on deep learning | Dec 08, 2017 | ![](img/PR057_64.jpg?raw=true) |  |  | 1 |
-| 48 | [PR050](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR050) | 非接触式生猪体温自动检测系统 | Dec 01, 2017 | ![](img/PR050_64.jpg?raw=true) |  |  | 1 |
-| 49 | [PR029](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR029) | Versatile Robotic Butler | Nov 15, 2017 | ![](img/PR029_64.jpg?raw=true) |  |  | 1 |
+| 41 | [PR058](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR058) | Intelligent traffic light control system based on image recognition and sensor. | Apr 29, 2018 | ![](img/PR058_64.jpg?raw=true) |  |  | 33 |
+| 42 | [PR102](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=PR102) | 基于FPGA的可回收垃圾收集系统设计 | Dec 27, 2017 | ![](img/PR102_64.jpg?raw=true) |  |  | 1 |
+| 43 | PR087 |    |    |    |    |    |    |
+| 44 | PR066 |    |    |    |    |    |    |
+| 45 | PR057 |    |    |    |    |    |    |
+| 46 | PR083 |    |    |    |    |    |    |
+| 47 | PR129 |    |    |    |    |    |    |
+| 48 | PR050 |    |    |    |    |    |    |
+| 49 | PR029 |    |    |    |    |    |    |
+| 50 | PR148 |    |    |    |    |    |    |
+| 51 | PR121 |    |    |    |    |    |    |
 
 | n | team | title | update | image | video | github links | paper: design arch
 | --- | --- | --- | --- | --- | --- | --- | --- |
