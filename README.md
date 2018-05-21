@@ -61,36 +61,37 @@ which dosfstools
 ```
 
 3. Make sure that serial communication utilities are available:<br/>
-output of these commands shouldn't be empty:
+output of this command shouldn't be empty:
 ```
 which minicom
 ```
-altrnatively you can use `screen` or `picocom`
+altenatively you can use `screen` or `picocom`
 
 
-4. Make sure that `git` is available:
- ```
+4. Make sure that `git` is available:<br/>
+output of this command shouldn't be empty:
+```
 which git
 ```
 
-5. Install ARM GNU toolchain for building HPS Linux kernel and U-boot build:
+5. Install ARM GNU toolchain for building HPS Linux kernel and U-Boot:
 ```
 sudo apt-get install -y make gcc gawk bc libssl-dev
 sudo apt-get install -y gcc-arm-linux-gnueabihf
 ```
 
-6. Install `fusesoc` version **1.8.1**:
+6. Install packages for ARM Debian rootfs regeneration
+```
+sudo apt-get install -y binfmt-support qemu qemu-user-static debootstrap
+```
+
+7. Install `fusesoc` version **1.8.1**:
 ```
 sudo apt-get install -y python3-pip
 sudo pip3 install fusesoc==1.8.1
 ```
 
-7. Install `Quartus Prime Lite` version **17.1**
-
-8. Install packages for ARM Debian rootfs regeneration
-```
-sudo apt-get install -y binfmt-support qemu qemu-user-static debootstrap
-```
+8. Install `Quartus Prime Lite` version **17.1**
 
 9. Install packages required for riscv-gnu-toolchain & riscv-qemu build
 ```
@@ -105,10 +106,6 @@ sudo mkdir -p /opt/riscv
 sudo chown $USER /opt/riscv
 ```
 
-11. Install packages for ARM Debian rootfs regeneration
-```
-sudo apt-get install -y binfmt-support qemu qemu-user-static debootstrap
-```
 
 ### Clone Bus Spider repository and prepare it to build
 ```
@@ -210,20 +207,20 @@ fdisk???
 
 Output of this command should be:
 ```
-+---+------+-----+-----------+
-| N | Size | Id  |   Type    |
-+===+======+=====+===========+
-| 1 |  8M  | a2  | unknown   |
-+---+------+-----+-----------+
-| 2 | 128M |  b  | W95 FAT32 |
-+---+------+-----+-----------+
-| 3 | ---- | 83  | Linux     |
-+===+======+=====+===========+
++---+------+----+-----------+
+| N | Size | Id |   Type    |
++===+======+====+===========+
+| 1 |  8M  | a2 | unknown   |
++---+------+----+-----------+
+| 2 | 128M | 0b | W95 FAT32 |
++---+------+----+-----------+
+| 3 | ---- | 83 | Linux     |
++===+======+====+===========+
 ```
 
 Partition 1 is for U-Boot. Double check it's ID=0xA2.<br/>
 Partition 2 is for Linux kernel image, Device Tree files and FPGA bitstreams.<br/>
-Partition 2 is for local Linux rootfs
+Partition 3 is for local Linux rootfs
 
 
 ```
@@ -383,4 +380,8 @@ echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
 - [ ] add barebox instruction;
 - [ ] use linux fpga manager;
 - [ ] add picocom/screen /dev/tty* instruction;
-- [ ] add OperRisc Bus pirate clone links;
+- [ ] add OpenRISC Bus pirate clone links;
+  * [XC6BP – FPGA Based 'Bus Pirate'](http://ultra-embedded.com/xc6bp-fpga-based-bus-pirate/)
+  * https://hackaday.com/2014/03/10/a-fpga-based-bus-pirate-clone/fpgapirate/
+  * http://robriglar.com/wordpress/wp-content/uploads/2014/03/fpga_xc6bp.tar.gz
+
