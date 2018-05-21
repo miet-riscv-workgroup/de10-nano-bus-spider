@@ -1,86 +1,214 @@
 # Bus Spider
-flexible open source hacker multi-tool
 
-```diff
-- Тут description
-- Bus Spider uses protocol for Bus Pirate!
+The Bus Spider is open source network enabled electronic multi-tool for enthusiasts and professionals.<br/>
+This project is heavely influenced and inspired by the Bus Pirate http://dangerousprototypes.com/docs/Bus_Pirate
+
+The Bus Spider aims to implement Bus Pirate's protocol and preserve compatibility while providing more functions.<br/>
+Network capablities of the Bus Spider will allow to use it as core device for remote control and debug.
+
+This repo contains source codes for Bus Spider hardware and software for implementation on the Terasic DE10-nano development board.
+
+## Table of contents
+
+  * [Running Bus Spider from prebuild images](#running-bus-spider-from-prebuild-images)
+  * [Building Bus Spider from sketch](#building-bus-spider-from-sketch)
+    * [Prerequirements](#prerequirements)
+    * [Clone Bus Spider repository and prepare it to buil](#clone-bus-spider-repository-and-prepare-it-to-build)
+    * [Install RISC-V GNU toolchain and QEMU from Bus Spider repository](#install-risc-v-gnu-toolchain-and-qemu-from-bus-spider-repository)
+    * [Building U-Boot bootloader image](#building-u-boot-bootloader-image)
+    * [Building FPGA bitstream](#building-fpga-bitstream)
+    * [Building Linux kernel image for HPS](#building-linux-kernel-image-for-hps)
+    * [Building Linux rootfs for HPS](#building-linux-rootfs-for-hps)
+    * [Building Bus Spider RISC-V SoC firmware](#building-bus-spider-risc-v-soc-firmware)
+    * [Burn images to SD-card](#burn-images-to-sd-card)
+  * [Start Bus Spider](#start-bus-spider)
+  * [Setup Bus Spider](#setup-bus-spider)
+  * [Work with Bus Spider](#work-with-bus-spider)
+  * [DE10-nano base Bus Spider connectivity list](#de10-nano-base-bus-spider-connectivity-list)
+  * [Configuring Bus Spider U-boot to use NFS rootfs](#configuring-bus-spider-u-boot-to-use-nfs-rootfs)
+    * [U-boot setup](#u-boot-setup)
+    * [TFTP-server setup](#tftp-server-setup)
+  * [Resetting Bus Spider RISC-V SoC from HPS hosted Linux](#resetting-bus-spider-risc-v-soc-from-hps-hosted-linux)
+  * [Links](#links)
+  * [Task list](#task-list)
+
+## Running Bus Spider from prebuild images
+**Empty**
+
+## Building Bus Spider from sketch
+
+### Prerequirements
+
+This instruction is valid for Debian 9 "Stretch". See https://www.debian.org for details.
+4GB of RAM is needed if you are running Quartus Prime software to build FPGA bitstream.
+This instruction may work for **Ubuntu 16.04** but results are not guarateed.
+
+1. Make sure that basic utilities are avalible<br/>
+output of these commands shouldn't be empty:
+```
+which tar
+which dd
+which sudo
+which xz
 ```
 
-This repo contains source codes for Bus Spider hardware and software.
-
-   * [running from pre-build images](#running-from-pre-build-images)
-      * [требования для burning images on sd-card &amp; running minicom](#требования-для-burning-images-on-sd-card--running-minicom)
-      * [how to burn images on(?) SD-card](#how-to-burn-images-on-sd-card)
-      * [how to turn DE10-Nano On, boot Debian Linux and check 'minicom AL1'](#how-to-turn-de10-nano-on-boot-debian-linux-and-check-minicom-al1)
-      * [how to add UEXT connector to DE10-Nano (cross-board schematics and UEXT pinout)](#how-to-add-uext-connector-to-de10-nano-cross-board-schematics-and-uext-pinout)
-      * [how to examine I2C device (demo)](#how-to-examine-i2c-device-demo)
-   * [Full rebuild](#full-rebuild)
-      * [Prerequisites](#prerequisites)
-         * [Install Quartus-lite 17.1](#install-quartus-lite-171)
-         * [Install sudo](#install-sudo)
-         * [Install necessary Debian Packages](#install-necessary-debian-packages)
-      * [Собственно пересборка](#Собственно-пересборка)
-         * [Сборка U-Boot](#Сборка-u-boot)
-         * [Сборка ядра linux](#Сборка-ядра-linux)
-         * [Сборка Debian ARM rootfs](#Сборка-debian-arm-rootfs)
-         * [RISC-V QEMU](#risc-v-qemu)
-         * [RISC-V toolchain](#risc-v-toolchain)
-         * [nmon: RISC-V bootrom software](#nmon-risc-v-bootrom-software)
-         * [FPGA bitstream for DE10-Nano](#fpga-bitstream-for-de10-nano)
-         * [Bus Spider RISC-V firmware](#bus-spider-risc-v-firmware)
-   * [NFS](#nfs)
-      * [TODO: Настройка U-boot при первом включении](#todo-Настройка-u-boot-при-первом-включении)
-         * [Настрока сети в U-Boot](#Настрока-сети-в-u-boot)
-         * [Настройка tftp-сервера](#Настройка-tftp-сервера)
-   * [Links](#links)
-
-
-```diff
-- Один параграф:
--    1. running Bus Spider on DE10-Nano from prebuild images
--    2. длинный процесс генерации всех images from sources
--    3. Bus Spider development from NFS-server
+2. Make sure that disk utilities are available<br/>
+output of these commands shouldn't be empty:
+```
+which fdisk
+which e2fsprogs
+which dosfstools
 ```
 
-## running from pre-build images
+3. Make sure that serial communication utilities are available:<br/>
+output of these commands shouldn't be empty:
+```
+which minicom
+```
+altrnatively you can use `screen` or `picocom`
 
-### требования для burning images on sd-card & running minicom
-Должен быть Linux box (e.g. Debian).
 
-Нужны tar & dd и декомпрессор (xz --- apt-get install xz-utils) для burning U-Boot.
+4. Make sure that `git` is available:
+ ```
+which git
+```
 
-Нужны fdisk, e2fsprogs и dosfstools.
+5. Install ARM GNU toolchain for building HPS Linux kernel and U-boot build:
+```
+sudo apt-get install -y make gcc gawk bc libssl-dev
+sudo apt-get install -y gcc-arm-linux-gnueabihf
+```
 
-Нужен minicom (или screen или picocom). Можно сослаться на готовое руководство по смотрению в UART
-DE1-SoC/DE10-Nano и пр.
+6. Install `fusesoc` version **1.8.1**:
+```
+sudo apt-get install -y python3-pip
+sudo pip3 install fusesoc==1.8.1
+```
 
+7. Install `Quartus Prime Lite` version **17.1**
+
+8. Install packages for ARM Debian rootfs regeneration
+```
+sudo apt-get install -y binfmt-support qemu qemu-user-static debootstrap
+```
+
+9. Install packages required for riscv-gnu-toolchain & riscv-qemu build
+```
+sudo apt-get install -y zlib1g-dev
+sudo apt-get install -y texinfo bison flex libgmp-dev libmpfr-dev libmpc-dev
+sudo apt-get install -y python pkg-config libglib2.0-dev libpixman-1-dev
+```
+
+10. Create global user-writable RISC-V tools install path
+```
+sudo mkdir -p /opt/riscv
+sudo chown $USER /opt/riscv
+```
+
+11. Install packages for ARM Debian rootfs regeneration
+```
+sudo apt-get install -y binfmt-support qemu qemu-user-static debootstrap
+```
+
+### Clone Bus Spider repository and prepare it to build
+```
+git clone --recursive https://github.com/miet-riscv-workgroup/de10-nano-bus-spider
+cd de10-nano-bus-spider
+OUTPUT=output
+mkdir -p $OUTPUT
+```
+
+### Install RISC-V GNU toolchain and QEMU from Bus Spider repository
+
+1. Install RISC-V QEMU
+```
+( cd riscv-qemu && ./configure --target-list=riscv32-softmmu,riscv64-softmmu --prefix=/opt/riscv )
+make -C riscv-qemu install
+```
+
+2. Install RISC-V GNU toolchain
+```
+( cd riscv-gnu-toolchain && ./configure --prefix=/opt/riscv --with-arch=rv32i )
+( make -C riscv-gnu-toolchain newlib )
+```
+
+
+### Building U-Boot bootloader image
 ```
   * u-boot-with-spl.sfp              --- U-Boot bootloader image
+```
+```
+make -s -C u-boot ARCH=arm socfpga_de10_nano_defconfig
+make -s -C u-boot ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
 
-  * de10-nano-bus-spider_0.rbf       --- FPGA bitstream
-
-  * zImage                           --- ARM Linux kernel image
-  * socfpga_cyclone5_de10_nano.dtb   --- device tree blob for ARM Linux kernel
-
-  * debian-stretch-armhf.tar.gz      --- ARM Linux rootfs
-
-  * bus_spider.nmon                  --- RISC-V SoC firmware
+cp u-boot/u-boot-with-spl.sfp $OUTPUT
 ```
 
 ```diff
-- FIXME: use xz instead of gz
+-При сборке u-boot будет сделана утилита
+-./u-boot/tools/mkimage
+-которую приходится использовать для компиляции скриптов u-boot.
+-Альтернативно можно поставить пакет Debian u-boot-tools
 ```
 
-### how to burn images on(?) SD-card
+### Building FPGA bitstream
+```
+  * de10-nano-bus-spider_0.rbf       --- FPGA bitstream
+```
+```
+( QP=/opt/altera/17.1/quartus && export PATH=$PATH:$QP/sopc_builder/bin:$QP/bin && \
+  cd riscv-soc-cores && fusesoc --cores cores/ build de10-nano-bus-spider )
 
+cp riscv-soc-cores/build/de10-nano-bus-spider_0/bld-quartus/de10-nano-bus-spider_0.rbf $OUTPUT
+```
+
+### Building Linux kernel image for HPS
+```
+  * socfpga_cyclone5_de10_nano.dtb   --- device tree blob for ARM Linux kernel
+  * zImage                           --- ARM Linux kernel image
+```
+
+```
+make -s -C linux ARCH=arm socfpga_de10_nano_defconfig
+make -s -C linux ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+
+cp linux/arch/arm/boot/zImage $OUTPUT
+cp linux/arch/arm/boot/dts/socfpga_cyclone5_de10_nano.dtb $OUTPUT
+```
+
+### Building Linux rootfs for HPS
+```
+  * debian-stretch-armhf.tar.gz      --- ARM Linux rootfs
+
+```
+
+```
+( cd output && sudo ../scripts/mk-debian-rootfs.sh )
+
+```
+
+### Building Bus Spider RISC-V SoC firmware
+
+```
+  * bus_spider.nmon                  --- RISC-V SoC firmware
+```
+```
+make -s -C bus-spider-firmware CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf- bus_spider.nmon
+cp bus-spider-firmware/bus_spider.nmon $OUTPUT
+```
+
+### Burn images to SD-card
 ```diff
 - FIXME: TODO: скрипт разметки
 scripts/mk-sd-card-parts.sh /dev/sdX
 ```
 
+Check partition table on SD-card:
+```
+fdisk???
+```
 
-В результате работы скрипта на SD-карте должны получиться следующие разделы:
-
+Output of this command should be:
 ```
 +---+------+-----+-----------+
 | N | Size | Id  |   Type    |
@@ -93,14 +221,9 @@ scripts/mk-sd-card-parts.sh /dev/sdX
 +===+======+=====+===========+
 ```
 
-В разделе 1 (ID=0xa2) хранится U-Boot.
-
-Раздел с загрузчиком обязательно должен иметь ID=0xa2!
-
-Раздел 2 (ID=0x0b) предназначен для хранения образа ядра Linux, файлов device tree и файлов битовых потоков ПЛИС. Указанные файлы будут использованы U-Boot при загрузке.
-
-Раздел 3 (ID=0x83) предназначен для хранения корневой файловой системы Linux.
-
+Partition 1 is for U-Boot. Double check it's ID=0xA2.<br/>
+Partition 2 is for Linux kernel image, Device Tree files and FPGA bitstreams.<br/>
+Partition 2 is for local Linux rootfs
 
 
 ```
@@ -111,8 +234,19 @@ dd if=u-boot-with-spl.sfp of=/dev/sdX1
 -tar -C $MOUNTPOINT vfx debian-stretch-armhf.tar.xz
 ```
 
-Add AL0 and AL1 minicom configurations with Ctrl-B escape-key.
+## Start Bus Spider
 
+1. Plug prepared SD-card in DE10-nano SD-card slot
+2. Connect DE10-nano to PC using Ethenet cable
+3. Power up DE10-nano
+
+## Setup Bus Spider
+
+### TODO: First run U-boot configuration
+
+0. Make shure DE10-nano is up and running
+1. Use secrure shell to access Bus Spider Linux Host (HPS subsystem)
+2. Add AL0 and AL1 minicom configurations:
 ```
 MOUNTPOINT=/mnt
 mount /dev/sdX3 $MOUNTPOINT
@@ -141,18 +275,10 @@ pu rtscts           No
 EOF
 ```
 
+## Work with Bus Spider
+* see [LCD1X9.md](doc/LCD1X9.md)
 
-### how to turn DE10-Nano On, boot Debian Linux and check 'minicom AL1'
-
-```diff
-- FIXME: ссылка на User Manual.
-```
-
-* подключите UART;
-* подключите питание;
-
-
-### how to add UEXT connector to DE10-Nano (cross-board schematics and UEXT pinout)
+## DE10-nano base Bus Spider connectivity list
 
 ```diff
 - FIXME: добавить картинку-schematic
@@ -161,184 +287,9 @@ EOF
 - FIXME: Добавить предложение вида --- проверяйте по SDC.
 ```
 
+## Configuring Bus Spider U-boot to use NFS rootfs
 
-### how to examine I2C device: LCD1X9 demo
-
-* see [LCD1X9.md](doc/LCD1X9.md)
-
-
-
-## Full rebuild
-
-```diff
-- Один параграф: что тут будет происходить длинный процесс генерации
-```
-
-
-### Prerequisites
-Please use Debian 9 "Stretch". See https://www.debian.org for details.
-
-You can use minimal Debian 9 x86_64 with ssh-server.
-Your Install 4 GB of RAM for Quartus. Otherwise you will get a message like this from Quartus:
-
-```
-Out of memory in module quartus_map (3085 megabytes used)
-Makefile:10: recipe for target 'map' failed
-```
-
-
-#### Install Quartus-lite 17.1
-
-Install Quartus Prime Lite Edition 17.1.0.
-
-
-#### Install sudo
-The 'sudo' command is used in this manual. Install it. Login as root and run
-
-```
-apt-get install -y sudo
-```
-
-You may want to execute sudo without password. Follow these links to select appropriate solution:
-
-  * https://askubuntu.com/questions/147241/execute-sudo-without-password
-  * https://askubuntu.com/a/368230
-  * http://jeromejaglale.com/doc/unix/ubuntu_sudo_without_password
-
-
-#### Install necessary Debian Packages
-
-```
-sudo apt-get install -y git
-```
-
-Install tools for ARM Linux kernel & U-Boot build:
-```
-sudo apt-get install -y make gcc gawk bc libssl-dev
-sudo apt-get install -y gcc-arm-linux-gnueabihf
-```
-
-Install stable fusesoc
-```
-sudo apt-get install -y python3-pip
-sudo pip3 install fusesoc==1.8.1
-```
-
-Install packages for riscv-gnu-toolchain & riscv-qemu build
-```
-sudo apt-get install -y zlib1g-dev
-sudo apt-get install -y texinfo bison flex libgmp-dev libmpfr-dev libmpc-dev
-sudo apt-get install -y python pkg-config libglib2.0-dev libpixman-1-dev
-```
-
-Install packages for ARM Debian rootfs regeneration
-```
-sudo apt-get install -y binfmt-support qemu qemu-user-static debootstrap
-```
-
-Create global user-writable RISC-V tools install path
-
-```
-sudo mkdir -p /opt/riscv
-sudo chown $USER /opt/riscv
-```
-
-This repository uses submodules. You need the ```--recursive``` option to fetch the submodules automatically
-
-```
-git clone --recursive https://github.com/miet-riscv-workgroup/de10-nano-bus-spider
-
-cd de10-nano-bus-spider
-```
-
-Prepare directory for output files.
-```
-OUTPUT=output
-mkdir -p $OUTPUT
-```
-
-
-### Собственно пересборка
-#### Сборка U-Boot
-
-```
-make -s -C u-boot ARCH=arm socfpga_de10_nano_defconfig
-make -s -C u-boot ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
-
-cp u-boot/u-boot-with-spl.sfp $OUTPUT
-```
-
-```diff
--При сборке u-boot будет сделана утилита
--./u-boot/tools/mkimage
--которую приходится использовать для компиляции скриптов u-boot.
--Альтернативно можно поставить пакет Debian u-boot-tools
-```
-
-
-#### Сборка ядра linux
-
-```
-make -s -C linux ARCH=arm socfpga_de10_nano_defconfig
-make -s -C linux ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
-
-cp linux/arch/arm/boot/zImage $OUTPUT
-cp linux/arch/arm/boot/dts/socfpga_cyclone5_de10_nano.dtb $OUTPUT
-```
-
-#### Сборка Debian ARM rootfs
-
-```
-( cd output && sudo ../scripts/mk-debian-rootfs.sh )
-```
-
-
-#### RISC-V QEMU
-
-```
-( cd riscv-qemu && ./configure --target-list=riscv32-softmmu,riscv64-softmmu --prefix=/opt/riscv )
-make -C riscv-qemu install
-```
-
-
-#### RISC-V toolchain
-
-```
-( cd riscv-gnu-toolchain && ./configure --prefix=/opt/riscv --with-arch=rv32i )
-( make -C riscv-gnu-toolchain newlib )
-```
-
-
-#### nmon: RISC-V bootrom software
-
-This step is not necessary. riscv-soc-cores already contains pre-compiled stable nmon image. This step demonstrate how to change nmon.
-
-```
-make -s -C riscv-nmon CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf- nmon_picorv32-wb-soc_24MHz_115200.txt
-```
-
-
-#### FPGA bitstream for DE10-Nano
-
-```
-( QP=/opt/altera/17.1/quartus && export PATH=$PATH:$QP/sopc_builder/bin:$QP/bin && \
-  cd riscv-soc-cores && fusesoc --cores cores/ build de10-nano-bus-spider )
-
-cp riscv-soc-cores/build/de10-nano-bus-spider_0/bld-quartus/de10-nano-bus-spider_0.rbf $OUTPUT
-```
-
-
-#### Bus Spider RISC-V firmware
-
-```
-make -s -C bus-spider-firmware CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf- bus_spider.nmon
-cp bus-spider-firmware/bus_spider.nmon $OUTPUT
-```
-
-## NFS
-### TODO: Настройка U-boot при первом включении
-
-#### Настрока сети в U-Boot
+### U-boot setup
 
 При первом старте U-Boot выдаёт сообщение об ошибке контроллера Ethernet:
 
@@ -362,7 +313,6 @@ Hit any key to stop autoboot:  0
 Дело в том, что для контроллера Ethernet не установлен MAC-адрес.
 
 Установить MAC-адрес и записать его в хранилище на SD-карте можно так:
-
 ```
 => setenv ethaddr 00:01:02:03:04:05
 => saveenv
@@ -375,10 +325,9 @@ Saving Environment to MMC... Writing to MMC(0)... OK
 Отмечу, что хранилище параметров U-Boot находится на SD-карте за пределами разделов, а значит при форматировании разделов хранилище не будет затронуто.
 
 
-#### Настройка tftp-сервера
+### TFTP-server setup
 
 Установить tftp-сервер:
-
 ```
 sudo apt-get install -y tftpd-hpa
 ```
@@ -386,20 +335,18 @@ sudo apt-get install -y tftpd-hpa
 Для tftp-сервера необходимо задать каталог файловой системы, файлы из которого
 доступны для загрузки по tftp.
 
-В Debian за это отвечает переменная TFTP_DIRECTORY в файле /etc/default/tftpd-hpa.
-По умолчанию в Debian TFTP_DIRECTORY="/srv/tftp". Также имеется практика использования
-каталога /tftpboot. Для сохранения совместимости с этой практикой, а также для облегчения интеграции с NFS-сервером рекомендуется создать ссылку /tftpboot:
-
+В Debian за это отвечает переменная `TFTP_DIRECTORY` в файле `/etc/default/tftpd-hpa`.
+По умолчанию в Debian `TFTP_DIRECTORY="/srv/tftp"`. Также имеется практика использования
+каталога `/tftpboot`. Для сохранения совместимости с этой практикой, а также для облегчения интеграции с NFS-сервером рекомендуется создать ссылку /tftpboot:
 ```
 ( cd / && sudo ln -s srv/tftp tftpboot )
 ```
 
-#### Настройка nfs-сервера
+### TODO: (Alternative) NFS-server setup
 
 
-#### Демонстрация подачи сигнала СБРОС на RISC-V SoC
-
-````
+## Resetting Bus Spider RISC-V SoC from HPS hosted Linux
+```
 GPIO=/sys/class/gpio; echo 2040 > $GPIO/export
 echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
 
@@ -411,13 +358,9 @@ echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
 # echo high > $GPIO/gpio2047/direction
 # echo low > $GPIO/gpio2040/direction
 # echo low > $GPIO/gpio2047/direction
-````
-
-
-
+```
 
 ## Links
-
 
 * [InnovateFPGA 2018 | EM099 | Bus Spider (Project Video)](https://www.youtube.com/watch?v=xk4pjrGDSXQ)
 * [SparkFun's Bus Pirate v3.6a Hookup Guide](https://learn.sparkfun.com/tutorials/bus-pirate-v36a-hookup-guide)
