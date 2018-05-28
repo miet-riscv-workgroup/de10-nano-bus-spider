@@ -33,7 +33,7 @@ This repo contains source codes for Bus Spider hardware and software for impleme
   * [Task list](#task-list)
 
 ## Running Bus Spider from prebuild images
-**Empty**
+**Pending**
 
 ## Building Bus Spider from sketch
 
@@ -106,7 +106,6 @@ sudo mkdir -p /opt/riscv
 sudo chown $USER /opt/riscv
 ```
 
-
 ### Clone Bus Spider repository and prepare it to build
 ```
 git clone --recursive https://github.com/miet-riscv-workgroup/de10-nano-bus-spider
@@ -129,11 +128,8 @@ make -C riscv-qemu install
 ( make -C riscv-gnu-toolchain newlib )
 ```
 
-
 ### Building U-Boot bootloader image
-```
-  * u-boot-with-spl.sfp              --- U-Boot bootloader image
-```
+Result of this step is `u-boot-with-spl.sfp` --- U-Boot bootloader image
 ```
 make -s -C u-boot ARCH=arm socfpga_de10_nano_defconfig
 make -s -C u-boot ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
@@ -141,17 +137,8 @@ make -s -C u-boot ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
 cp u-boot/u-boot-with-spl.sfp $OUTPUT
 ```
 
-```diff
--При сборке u-boot будет сделана утилита
--./u-boot/tools/mkimage
--которую приходится использовать для компиляции скриптов u-boot.
--Альтернативно можно поставить пакет Debian u-boot-tools
-```
-
 ### Building FPGA bitstream
-```
-  * de10-nano-bus-spider_0.rbf       --- FPGA bitstream
-```
+Result of this step is `de10-nano-bus-spider_0.rbf` --- Cyclone V SoC FPGA bitstream
 ```
 ( QP=/opt/altera/17.1/quartus && export PATH=$PATH:$QP/sopc_builder/bin:$QP/bin && \
   cd riscv-soc-cores && fusesoc --cores cores/ build de10-nano-bus-spider )
@@ -160,11 +147,9 @@ cp riscv-soc-cores/build/de10-nano-bus-spider_0/bld-quartus/de10-nano-bus-spider
 ```
 
 ### Building Linux kernel image for HPS
-```
-  * socfpga_cyclone5_de10_nano.dtb   --- device tree blob for ARM Linux kernel
-  * zImage                           --- ARM Linux kernel image
-```
-
+Results of this step are:
+  * `socfpga_cyclone5_de10_nano.dtb`   --- device tree blob for ARM Linux kernel
+  * `zImage`                           --- ARM Linux kernel image
 ```
 make -s -C linux ARCH=arm socfpga_de10_nano_defconfig
 make -s -C linux ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
@@ -174,36 +159,25 @@ cp linux/arch/arm/boot/dts/socfpga_cyclone5_de10_nano.dtb $OUTPUT
 ```
 
 ### Building Linux rootfs for HPS
-```
-  * debian-stretch-armhf.tar.gz      --- ARM Linux rootfs
-
-```
-
+Result of this step is `debian-stretch-armhf.tar.gz` --- ARM Linux rootfs
 ```
 ( cd output && sudo ../scripts/mk-debian-rootfs.sh )
 
 ```
 
 ### Building Bus Spider RISC-V SoC firmware
-
-```
-  * bus_spider.nmon                  --- RISC-V SoC firmware
-```
+Result of this step is `bus_spider.nmon` --- RISC-V SoC firmware
 ```
 make -s -C bus-spider-firmware CROSS_COMPILE=/opt/riscv/bin/riscv32-unknown-elf- bus_spider.nmon
 cp bus-spider-firmware/bus_spider.nmon $OUTPUT
 ```
 
 ### Burn images to SD-card
-```diff
-- FIXME: TODO: скрипт разметки
-scripts/mk-sd-card-parts.sh /dev/sdX
-```
+Partition SD-card:<br/>
+**Pending**
 
-Check partition table on SD-card:
-```
-fdisk???
-```
+Check partition table on SD-card:<br/>
+**Pending**
 
 Output of this command should be:
 ```
@@ -222,13 +196,8 @@ Partition 1 is for U-Boot. Double check it's ID=0xA2.<br/>
 Partition 2 is for Linux kernel image, Device Tree files and FPGA bitstreams.<br/>
 Partition 3 is for local Linux rootfs
 
-
 ```
 dd if=u-boot-with-spl.sfp of=/dev/sdX1
-```
-
-```diff
--tar -C $MOUNTPOINT vfx debian-stretch-armhf.tar.xz
 ```
 
 ## Start Bus Spider
@@ -288,29 +257,7 @@ EOF
 ## Configuring Bus Spider U-boot to use NFS rootfs
 
 ### U-boot setup
-
-При первом старте U-Boot выдаёт сообщение об ошибке контроллера Ethernet:
-
-```
-Loading Environment from MMC... *** Warning - bad CRC, using default environment
-
-Failed (-5)
-In:    serial
-Out:   serial
-Err:   serial
-Model: Terasic DE10-Nano
-Net:
-Error: ethernet@ff702000 address not set.
-No ethernet found.
-Hit any key to stop autoboot:  0
-=>
-```
-
-При этом заставить U-boot выполнять обмены по Ethernet не получится.
-
-Дело в том, что для контроллера Ethernet не установлен MAC-адрес.
-
-Установить MAC-адрес и записать его в хранилище на SD-карте можно так:
+**Pending**
 ```
 => setenv ethaddr 00:01:02:03:04:05
 => saveenv
@@ -318,30 +265,11 @@ Saving Environment to MMC... Writing to MMC(0)... OK
 =>
 ```
 
-После следующей перезагрузки контроллер Ethernet станет доступен.
-
-Отмечу, что хранилище параметров U-Boot находится на SD-карте за пределами разделов, а значит при форматировании разделов хранилище не будет затронуто.
-
-
 ### TFTP-server setup
+**Pending**
 
-Установить tftp-сервер:
-```
-sudo apt-get install -y tftpd-hpa
-```
-
-Для tftp-сервера необходимо задать каталог файловой системы, файлы из которого
-доступны для загрузки по tftp.
-
-В Debian за это отвечает переменная `TFTP_DIRECTORY` в файле `/etc/default/tftpd-hpa`.
-По умолчанию в Debian `TFTP_DIRECTORY="/srv/tftp"`. Также имеется практика использования
-каталога `/tftpboot`. Для сохранения совместимости с этой практикой, а также для облегчения интеграции с NFS-сервером рекомендуется создать ссылку /tftpboot:
-```
-( cd / && sudo ln -s srv/tftp tftpboot )
-```
-
-### TODO: (Alternative) NFS-server setup
-
+### (Alternative) NFS-server setup
+**Pending**
 
 ## Resetting Bus Spider RISC-V SoC from HPS hosted Linux
 ```
