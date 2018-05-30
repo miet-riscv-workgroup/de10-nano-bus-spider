@@ -35,6 +35,7 @@ This repo contains source codes for Bus Spider hardware and software for impleme
    * [Resetting Bus Spider RISC-V SoC from HPS hosted Linux](#resetting-bus-spider-risc-v-soc-from-hps-hosted-linux)
    * [Links](#links)
       * [Bus Pirate](#bus-pirate)
+         * [XC6BP – FPGA Based 'Bus Pirate'](#xc6bp--fpga-based-bus-pirate)
 
 
 ## Running Bus Spider from prebuild images
@@ -318,3 +319,9 @@ echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
 * https://github.com/sparkfun/Bus_Pirate
 * https://github.com/BusPirate/Bus_Pirate
 * https://www.seeedstudio.com/Bus-Pirate-v3.6-universal-serial-interface-p-609.html
+
+#### XC6BP – FPGA Based 'Bus Pirate' ####
+
+* [XC6BP – FPGA Based 'Bus Pirate'](http://ultra-embedded.com/xc6bp-fpga-based-bus-pirate/)
+* https://hackaday.com/2014/03/10/a-fpga-based-bus-pirate-clone/fpgapirate/
+* http://robriglar.com/wordpress/wp-content/uploads/2014/03/fpga_xc6bp.tar.gz
