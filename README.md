@@ -32,6 +32,9 @@ This repo contains source codes for Bus Spider hardware and software for impleme
    * [Uploading Bus Spider SoC firmware from HPS hosted Linux](#uploading-bus-spider-soc-firmware-from-hps-hosted-linux)
    * [Accesing Bus Spider CLI from HPS hosted Linux](#accesing-bus-spider-cli-from-hps-hosted-linux)
    * [DE10-Nano base Bus Spider connectivity list](#de10-nano-base-bus-spider-connectivity-list)
+   * [Work with Bus Spider](#work-with-bus-spider)
+      * [I2C](#i2c)
+      * [SPI](#spi)
    * [Resetting Bus Spider RISC-V SoC from HPS hosted Linux](#resetting-bus-spider-risc-v-soc-from-hps-hosted-linux)
    * [Links](#links)
       * [Bus Pirate](#bus-pirate)
@@ -288,6 +291,18 @@ EOF
 ```diff
 - FIXME: use Quartus sdc-files to check devboard-UEXT connectivity
 ```
+
+
+## Work with Bus Spider
+
+### I2C
+
+* see [LCD1X9.md](doc/LCD1X9.md)
+* see [TinyRTC.md](doc/TinyRTC.md)
+
+### SPI
+
+* see [Winbond-W25Q16.md](doc/Winbond-W25Q16.md)
 
 
 ## Resetting Bus Spider RISC-V SoC from HPS hosted Linux
