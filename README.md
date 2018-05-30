@@ -1,17 +1,17 @@
 # Bus Spider
 
 The Bus Spider is open source network enabled electronic multi-tool for enthusiasts and professionals.<br/>
-This project is heavely influenced and inspired by the Bus Pirate http://dangerousprototypes.com/docs/Bus_Pirate
+This project is heavily influenced and inspired by the Bus Pirate http://dangerousprototypes.com/docs/Bus_Pirate
 
 The Bus Spider aims to implement Bus Pirate's protocol and preserve compatibility while providing more functions.<br/>
-Network capablities of the Bus Spider will allow to use it as core device for remote control and debug.
+Network capabilities of the Bus Spider will allow to use it as core device for remote control and debug.
 
 This repo contains source codes for Bus Spider hardware and software for implementation on the Terasic DE10-Nano development board.
 
 
 ## Table of contents
 
-   * [Running Bus Spider from prebuild images](#running-bus-spider-from-prebuild-images)
+   * [Running Bus Spider from prebuilt images](#running-bus-spider-from-prebuilt-images)
    * [Building Bus Spider from scratch](#building-bus-spider-from-scratch)
       * [Prerequirements](#prerequirements)
       * [Clone Bus Spider repository and prepare it to build](#clone-bus-spider-repository-and-prepare-it-to-build)
@@ -30,7 +30,7 @@ This repo contains source codes for Bus Spider hardware and software for impleme
       * [Using U-Boot scripts for running Linux with NFS rootfs](#using-u-boot-scripts-for-running-linux-with-nfs-rootfs)
       * [First run Linux configuration](#first-run-linux-configuration)
    * [Uploading Bus Spider SoC firmware from HPS hosted Linux](#uploading-bus-spider-soc-firmware-from-hps-hosted-linux)
-   * [Accesing Bus Spider CLI from HPS hosted Linux](#accesing-bus-spider-cli-from-hps-hosted-linux)
+   * [Accessing Bus Spider CLI from HPS hosted Linux](#accessing-bus-spider-cli-from-hps-hosted-linux)
    * [DE10-Nano base Bus Spider connectivity list](#de10-nano-base-bus-spider-connectivity-list)
    * [Work with Bus Spider](#work-with-bus-spider)
       * [I2C](#i2c)
@@ -41,7 +41,7 @@ This repo contains source codes for Bus Spider hardware and software for impleme
          * [XC6BP – FPGA Based 'Bus Pirate'](#xc6bp--fpga-based-bus-pirate)
 
 
-## Running Bus Spider from prebuild images
+## Running Bus Spider from prebuilt images
 **Pending**
 
 
@@ -51,9 +51,9 @@ This repo contains source codes for Bus Spider hardware and software for impleme
 
 This instruction is valid for Debian 9 "Stretch". See https://www.debian.org for details.
 4GB of RAM is needed if you are running Quartus Prime software to build FPGA bitstream.
-This instruction may work for **Ubuntu 16.04** but results are not guarateed.
+This instruction may work for **Ubuntu 16.04** but results are not guaranteed.
 
-1. Make sure that basic utilities are avalible<br/>
+1. Make sure that basic utilities are available<br/>
 output of these commands shouldn't be empty:
 ```
 which tar
@@ -75,7 +75,7 @@ output of this command shouldn't be empty:
 ```
 which minicom
 ```
-altenatively you can use `screen` or `picocom`
+alternatively you can use `screen` or `picocom`
 
 
 4. Make sure that `git` is available:<br/>
@@ -279,7 +279,7 @@ EOF
 **Pending**
 
 
-## Accesing Bus Spider CLI from HPS hosted Linux
+## Accessing Bus Spider CLI from HPS hosted Linux
 **Pending**
 
 
