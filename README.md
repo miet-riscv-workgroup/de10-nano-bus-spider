@@ -323,7 +323,7 @@ echo high > $GPIO/gpio2040/direction; echo low > $GPIO/gpio2040/direction
 
 ## Links
 
-* [InnovateFPGA 2018 | EM099 | Bus Spider](http://www.innovatefpga.com/cgi-bin/innovate/teams.pl?Id=EM099)
+* [InnovateFPGA 2018 | EM099 | Bus Spider](http://www.innovatefpga.com/cgi-bin/innovate/teams2018.pl?Id=EM099)
 * [InnovateFPGA 2018 | EM099 | Bus Spider (Project Video)](https://www.youtube.com/watch?v=xk4pjrGDSXQ)
 
 
